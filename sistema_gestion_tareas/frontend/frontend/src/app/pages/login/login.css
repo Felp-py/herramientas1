@@ -1,0 +1,73 @@
+/* Asegura que el contenedor ocupe todo el alto de la pantalla */
+.login-wrapper {
+  min-height: 100vh;
+  background-color: #0d1117; /* Fondo oscuro estilo GitHub */
+  background-image: radial-gradient(circle at top right, rgba(31, 111, 235, 0.1), transparent 40%);
+}
+
+/* Tarjeta de login */
+.login-card {
+  background-color: #161b22 !important; /* Gris intermedio */
+  border: 1px solid #30363d !important; /* Borde sutil de GitHub */
+  border-radius: 12px;
+}
+
+/* Título e ícono */
+.login-title {
+  color: #f0f6fc;
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+.brand-icon {
+  width: 56px;
+  height: 56px;
+  background-color: #21262d;
+  color: #c9d1d9;
+  border-radius: 50%;
+  border: 1px solid #30363d;
+}
+
+/* Etiquetas y Campos de texto */
+.custom-label {
+  color: #c9d1d9;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.custom-input {
+  background-color: #0d1117 !important;
+  border: 1px solid #30363d !important;
+  color: #f0f6fc !important;
+  padding: 0.6rem 0.75rem;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+}
+
+.custom-input:focus {
+  border-color: #58a6ff !important; /* Azul GitHub */
+  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.15) !important;
+  outline: none;
+}
+
+.custom-input::placeholder {
+  color: #484f58;
+}
+
+/* Botón Estilo GitHub Primario */
+.btn-git-primary {
+  background-color: #238636; /* Verde de GitHub */
+  border: 1px solid rgba(240, 246, 252, 0.1);
+  color: #ffffff;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-git-primary:hover {
+  background-color: #2ea043;
+  color: #ffffff;
+}
+
+.btn-git-primary:active {
+  background-color: #24883a;
+}

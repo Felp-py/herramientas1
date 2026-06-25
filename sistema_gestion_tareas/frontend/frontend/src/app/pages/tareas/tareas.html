@@ -1,0 +1,105 @@
+<div class="tasks-wrapper min-vh-100 py-4">
+  <div class="container-fluid px-4">
+    
+    <div class="d-flex align-items-center justify-content-between mb-4">
+      <div>
+        <h2 class="page-title text-white fw-bold mb-1">Listado Global de Tareas</h2>
+        <p class="text-muted small mb-0">Visualiza, edita o depura los issues asignados a tus repositorios</p>
+      </div>
+      
+      <button class="btn btn-git-secondary btn-sm d-flex align-items-center gap-2" (click)="irAlDashboard()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+        </svg>
+        Volver al Dashboard
+      </button>
+    </div>
+
+    <div class="card table-card border-0 shadow-sm">
+      <div class="table-responsive">
+        <table class="table custom-git-table align-middle mb-0">
+          <thead>
+            <tr>
+              <th scope="col" class="text-muted text-center" style="width: 70px;">ID</th>
+              <th scope="col" class="text-muted">Título de la Tarea</th>
+              <th scope="col" class="text-muted" style="width: 140px;">Estado</th>
+              <th scope="col" class="text-muted" style="width: 120px;">Prioridad</th>
+              <th scope="col" class="text-muted">Asignado</th>
+              <th scope="col" class="text-muted">Sprint</th>
+              <th scope="col" class="text-muted text-end" style="width: 160px;">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tarea of tareas">
+              <td class="text-center font-monospace fw-semibold">
+  #{{ tarea.id }}
+</td>
+              
+              <td>
+                <span class="task-table-title text-white fw-medium">{{ tarea.titulo }}</span>
+              </td>
+              
+              <td>
+                <span class="badge" [ngClass]="{
+                  'status-open': tarea.estado === 'PENDIENTE' || tarea.estado === 'OPEN',
+                  'status-progress': tarea.estado === 'EN_PROGRESO' || tarea.estado === 'IN_PROGRESS',
+                  'status-closed': tarea.estado === 'COMPLETADO' || tarea.estado === 'CLOSED'
+                }">
+                  {{ tarea.estado }}
+                </span>
+              </td>
+              
+              <td>
+                <span class="badge" [ngClass]="{
+                  'bg-danger-git': tarea.prioridad === 'ALTA',
+                  'bg-warning-git': tarea.prioridad === 'MEDIA',
+                  'bg-success-git': tarea.prioridad === 'BAJA'
+                }">
+                  {{ tarea.prioridad }}
+                </span>
+              </td>
+              
+              <td>
+                <div class="d-flex align-items-center gap-2">
+                  <div class="user-avatar-placeholder">
+                    {{ (($any(tarea.usuario?.nombre) || 'U').toString().charAt(0)) | uppercase }}
+                  </div>
+                  <span class="text-light small">{{ tarea.usuario?.nombre || 'Sin asignar' }}</span>
+                </div>
+              </td>
+              
+             <td>
+  <span class="sprint-badge">
+    📦 {{ tarea.sprint?.nombre || 'No asignado' }}
+  </span>
+</td>
+              
+              <td class="text-end">
+                <div class="d-flex justify-content-end gap-2">
+                  <button class="btn btn-action-edit btn-sm" (click)="editar(tarea.id)" title="Editar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                    </svg>
+                    <span>Editar</span>
+                  </button>
+                  <button class="btn btn-action-delete btn-sm" (click)="eliminar(tarea.id)" title="Eliminar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                      <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                    </svg>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr *ngIf="tareas.length === 0">
+              <td colspan="7" class="text-center py-5 text-muted">
+                <p class="mb-0">No se encontraron tareas registradas.</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>

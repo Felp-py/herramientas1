@@ -1,0 +1,201 @@
+.tasks-wrapper {
+  background-color: #0d1117;
+  min-height: 100vh;
+  color: #c9d1d9;
+}
+
+.page-title {
+  letter-spacing: -0.5px;
+  color: #f0f6fc;
+}
+
+/* Contenedor principal */
+.table-card {
+  background-color: #161b22;
+  border: 1px solid #30363d !important;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* Tabla */
+.custom-git-table {
+  background-color: #161b22;
+  margin-bottom: 0;
+}
+
+.custom-git-table thead th {
+  background-color: #0d1117;
+  color: #8b949e !important;
+  border-bottom: 1px solid #30363d;
+  padding: 14px 16px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Filas */
+.custom-git-table tbody tr {
+  background-color: #161b22;
+  border-bottom: 1px solid #21262d;
+  transition: all 0.2s ease;
+}
+
+.custom-git-table tbody tr:hover {
+  background-color: #1c2128;
+}
+
+.custom-git-table tbody td {
+  background-color: #161b22;
+  color: #c9d1d9;
+  padding: 16px;
+  vertical-align: middle;
+}
+
+/* Título tarea */
+.task-table-title {
+  color: #58a6ff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.task-table-title:hover {
+  color: #79c0ff;
+}
+
+/* Avatar */
+.user-avatar-placeholder {
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, #238636, #58a6ff);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* Badges */
+.badge {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Estados */
+.status-open {
+  background-color: rgba(35, 134, 54, 0.15);
+  color: #56d364;
+  border: 1px solid rgba(35, 134, 54, 0.4);
+}
+
+.status-progress {
+  background-color: rgba(56, 139, 253, 0.15);
+  color: #79c0ff;
+  border: 1px solid rgba(56, 139, 253, 0.4);
+}
+
+.status-closed {
+  background-color: rgba(137, 87, 229, 0.15);
+  color: #a371f7;
+  border: 1px solid rgba(137, 87, 229, 0.4);
+}
+
+/* Prioridades */
+.bg-danger-git {
+  background-color: rgba(248, 81, 73, 0.15);
+  color: #ff7b72;
+  border: 1px solid rgba(248, 81, 73, 0.4);
+}
+
+.bg-warning-git {
+  background-color: rgba(210, 153, 34, 0.15);
+  color: #e3b341;
+  border: 1px solid rgba(210, 153, 34, 0.4);
+}
+
+.bg-success-git {
+  background-color: rgba(35, 134, 54, 0.15);
+  color: #56d364;
+  border: 1px solid rgba(35, 134, 54, 0.4);
+}
+
+/* Botón editar */
+.btn-action-edit {
+  background-color: #21262d;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.btn-action-edit:hover {
+  background-color: #30363d;
+  color: #58a6ff;
+  border-color: #58a6ff;
+}
+
+/* Botón eliminar */
+.btn-action-delete {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: #8b949e;
+  transition: all 0.2s ease;
+}
+
+.btn-action-delete:hover {
+  background-color: rgba(248, 81, 73, 0.15);
+  color: #f85149;
+}
+
+/* Botón dashboard */
+.btn-git-secondary {
+  background-color: #21262d;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  transition: all 0.2s ease;
+}
+
+.btn-git-secondary:hover {
+  background-color: #30363d;
+  border-color: #58a6ff;
+  color: #58a6ff;
+}
+
+/* Scroll bonito */
+.table-responsive::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+  background: #0d1117;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+  background: #484f58;
+}
+.font-monospace {
+  color: #8b949e;
+}
+.sprint-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(88, 166, 255, 0.12);
+  border: 1px solid rgba(88, 166, 255, 0.25);
+  color: #79c0ff;
+  font-size: 0.85rem;
+  font-weight: 500;
+}

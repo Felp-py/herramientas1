@@ -1,0 +1,117 @@
+<div class="create-wrapper min-vh-100 py-5">
+  <div class="container">
+
+    <div class="create-card">
+
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h2 class="create-title mb-1">Nueva Tarea</h2>
+          <p class="text-muted mb-0">
+            Registra una nueva tarea dentro del proyecto
+          </p>
+        </div>
+
+        <button
+          class="btn btn-git-secondary"
+          routerLink="/tareas">
+
+          ← Volver
+
+        </button>
+      </div>
+
+      <hr class="custom-divider">
+
+      <div class="mb-4">
+
+        <label class="form-label custom-label">
+          Título
+        </label>
+
+        <input
+          type="text"
+          class="form-control custom-input"
+          placeholder="Ingrese el título de la tarea"
+          [(ngModel)]="titulo">
+
+      </div>
+
+      <div class="mb-4">
+
+        <label class="form-label custom-label">
+          Descripción
+        </label>
+
+        <textarea
+          rows="5"
+          class="form-control custom-input"
+          placeholder="Describa la tarea"
+          [(ngModel)]="descripcion">
+        </textarea>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-6 mb-4">
+
+          <label class="form-label custom-label">
+            Estado
+          </label>
+
+          <select
+            class="form-select custom-input"
+            [(ngModel)]="estado">
+
+            <option value="PENDIENTE">PENDIENTE</option>
+            <option value="EN_PROGRESO">EN PROGRESO</option>
+            <option value="COMPLETADO">COMPLETADO</option>
+
+          </select>
+
+        </div>
+
+        <div class="col-md-6 mb-4">
+
+          <label class="form-label custom-label">
+            Prioridad
+          </label>
+
+          <select
+            class="form-select custom-input"
+            [(ngModel)]="prioridad">
+
+            <option value="BAJA">BAJA</option>
+            <option value="MEDIA">MEDIA</option>
+            <option value="ALTA">ALTA</option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+      <div class="d-flex justify-content-end gap-2">
+
+        <button
+          class="btn btn-git-secondary"
+          routerLink="/tareas">
+
+          Cancelar
+
+        </button>
+
+        <button
+          class="btn btn-create"
+          (click)="guardar()">
+
+          ➕ Crear Tarea
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
