@@ -1,168 +1,126 @@
-<div class="dashboard-wrapper">
-  
-  <nav class="navbar navbar-expand-lg dashboard-nav border-bottom">
-    <div class="container-fluid px-4">
-      <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-        <svg height="24" viewBox="0 0 16 16" width="24" fill="currentColor" class="text-git-link">
-          <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82A7.48 7.48 0 0 0 8 2.51c-.68 0-1.36.09-2 .28-1.52-1.04-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.16.73.72.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+<div class="dash-wrapper">
+
+  <!-- Navbar -->
+  <nav class="dash-nav">
+    <div class="nav-brand">
+      <svg height="20" viewBox="0 0 16 16" width="20" fill="currentColor">
+        <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82A7.48 7.48 0 0 0 8 2.51c-.68 0-1.36.09-2 .28-1.52-1.04-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.16.73.72.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/>
+      </svg>
+      <span>GitTask Dashboard</span>
+    </div>
+    <div class="nav-actions">
+      <button class="btn btn-primary" (click)="irACrearTarea()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
         </svg>
-        <span class="fw-bold tracking-tight text-white">GitTask Dashboard</span>
-      </a>
-      
-      <div class="d-flex align-items-center gap-2 ms-auto">
-        <button class="btn btn-git-primary btn-sm d-flex align-items-center gap-1" (click)="irACrearTarea()">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg>
-          Nueva Tarea
-        </button>
-        <button class="btn btn-git-secondary btn-sm" (click)="irATareas()">
-          Ver Tareas
-        </button>
-        <button class="btn btn-git-danger btn-sm" (click)="logout()">
-          Cerrar Sesión
-        </button>
-      </div>
+        Nueva tarea
+      </button>
+      <button class="btn btn-secondary" (click)="irATareas()">Ver tareas</button>
+      <button class="btn btn-ghost-danger" (click)="logout()">Cerrar sesión</button>
     </div>
   </nav>
 
-  <div class="container-fluid px-4 py-4">
-    
-    <div class="row g-3 mb-4">
-      <div class="col-md-3">
-        <div class="card metric-card border-0 shadow-sm">
-          <div class="card-body d-flex align-items-center justify-content-between">
-            <div>
-              <span class="metric-label text-muted d-block small fw-medium uppercase">Total</span>
-              <h2 class="metric-value m-0 fw-bold text-white">{{ totalTareas }}</h2>
-            </div>
-            <div class="metric-icon-bg bg-secondary-subtle text-secondary">📊</div>
-          </div>
-        </div>
+  <div class="dash-content">
+
+    <!-- Métricas -->
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <span class="metric-label">
+          <span class="metric-dot dot-neutral"></span>Total
+        </span>
+        <span class="metric-value text-default">{{ totalTareas }}</span>
       </div>
-      <div class="col-md-3">
-        <div class="card metric-card border-0 shadow-sm">
-          <div class="card-body d-flex align-items-center justify-content-between">
-            <div>
-              <span class="metric-label text-muted d-block small fw-medium">Pendientes</span>
-              <h2 class="metric-value m-0 fw-bold text-warning">{{ pendientes }}</h2>
-            </div>
-            <div class="metric-icon-bg bg-warning-subtle text-warning">⏳</div>
-          </div>
-        </div>
+      <div class="metric-card">
+        <span class="metric-label">
+          <span class="metric-dot dot-warning"></span>Pendiente
+        </span>
+        <span class="metric-value text-warning">{{ pendientes }}</span>
       </div>
-      <div class="col-md-3">
-        <div class="card metric-card border-0 shadow-sm">
-          <div class="card-body d-flex align-items-center justify-content-between">
-            <div>
-              <span class="metric-label text-muted d-block small fw-medium">En Progreso</span>
-              <h2 class="metric-value m-0 fw-bold text-primary">{{ enProgreso }}</h2>
-            </div>
-            <div class="metric-icon-bg bg-primary-subtle text-primary">⚡</div>
-          </div>
-        </div>
+      <div class="metric-card">
+        <span class="metric-label">
+          <span class="metric-dot dot-info"></span>En progreso
+        </span>
+        <span class="metric-value text-info">{{ enProgreso }}</span>
       </div>
-      <div class="col-md-3">
-        <div class="card metric-card border-0 shadow-sm">
-          <div class="card-body d-flex align-items-center justify-content-between">
-            <div>
-              <span class="metric-label text-muted d-block small fw-medium">Completadas</span>
-              <h2 class="metric-value m-0 fw-bold text-success">{{ completadas }}</h2>
-            </div>
-            <div class="metric-icon-bg bg-success-subtle text-success">✅</div>
-          </div>
-        </div>
+      <div class="metric-card">
+        <span class="metric-label">
+          <span class="metric-dot dot-success"></span>Completadas
+        </span>
+        <span class="metric-value text-success">{{ completadas }}</span>
       </div>
     </div>
 
-    <div class="kanban-section mt-4">
-      <h3 class="section-title text-white fw-bold mb-3 h5 d-flex align-items-center gap-2">
-        <span>📋 Tablero de Proyecto</span>
-      </h3>
-      
-      <div class="row g-3">
-        
-        <div class="col-md-4">
-          <div class="kanban-column">
-            <div class="kanban-column-header d-flex align-items-center justify-content-between mb-2">
-              <div class="d-flex align-items-center gap-2">
-                <span class="status-indicator bg-warning"></span>
-                <span class="column-title fw-semibold text-white">PENDIENTE</span>
-              </div>
-              <span class="badge bg-dark-pill text-muted">{{ tareasPendientes.length || 0 }}</span>
-            </div>
-            
-            <div class="kanban-cards-container">
-              <div class="card kanban-card border-0 shadow-sm mb-2" *ngFor="let tarea of tareasPendientes">
-                <div class="card-body p-3">
-                  <h6 class="task-title text-white mb-2">{{ tarea.titulo }}</h6>
-                  <div class="d-flex align-items-center justify-content-between">
-                    <span class="badge" [ngClass]="{
-                      'bg-danger-git': tarea.prioridad === 'ALTA',
-                      'bg-warning-git': tarea.prioridad === 'MEDIA',
-                      'bg-success-git': tarea.prioridad === 'BAJA'
-                    }">{{ tarea.prioridad }}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <!-- Kanban -->
+    <p class="section-label">Tablero de proyecto</p>
+
+    <div class="kanban-grid">
+
+      <!-- Columna Pendiente -->
+      <div class="kanban-col">
+        <div class="kanban-col-header">
+          <div class="kanban-col-title">
+            <span class="col-dot dot-warning"></span>
+            Pendiente
+          </div>
+          <span class="col-count">{{ tareasPendientes.length || 0 }}</span>
+        </div>
+        <div class="kanban-cards">
+          <div class="kanban-card" *ngFor="let tarea of tareasPendientes">
+            <p class="card-title">{{ tarea.titulo }}</p>
+            <span class="priority-badge"
+              [ngClass]="{
+                'badge-alta':  tarea.prioridad === 'ALTA',
+                'badge-media': tarea.prioridad === 'MEDIA',
+                'badge-baja':  tarea.prioridad === 'BAJA'
+              }">{{ tarea.prioridad }}</span>
           </div>
         </div>
-
-        <div class="col-md-4">
-          <div class="kanban-column">
-            <div class="kanban-column-header d-flex align-items-center justify-content-between mb-2">
-              <div class="d-flex align-items-center gap-2">
-                <span class="status-indicator bg-primary"></span>
-                <span class="column-title fw-semibold text-white">IN PROGRESS</span>
-              </div>
-              <span class="badge bg-dark-pill text-muted">{{ tareasEnProgreso.length || 0 }}</span>
-            </div>
-
-            <div class="kanban-cards-container">
-              <div class="card kanban-card border-0 shadow-sm mb-2" *ngFor="let tarea of tareasEnProgreso">
-                <div class="card-body p-3">
-                  <h6 class="task-title text-white mb-2">{{ tarea.titulo }}</h6>
-                  <div class="d-flex align-items-center justify-content-between">
-                    <span class="badge" [ngClass]="{
-                      'bg-danger-git': tarea.prioridad === 'ALTA',
-                      'bg-warning-git': tarea.prioridad === 'MEDIA',
-                      'bg-success-git': tarea.prioridad === 'BAJA'
-                    }">{{ tarea.prioridad }}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="kanban-column">
-            <div class="kanban-column-header d-flex align-items-center justify-content-between mb-2">
-              <div class="d-flex align-items-center gap-2">
-                <span class="status-indicator bg-success"></span>
-                <span class="column-title fw-semibold text-white">COMPLETADO</span>
-              </div>
-              <span class="badge bg-dark-pill text-muted">{{ tareasCompletadas.length || 0 }}</span>
-            </div>
-
-            <div class="kanban-cards-container">
-              <div class="card kanban-card border-0 shadow-sm mb-2" *ngFor="let tarea of tareasCompletadas">
-                <div class="card-body p-3">
-                  <h6 class="task-title text-white mb-2 text-decoration-line-through text-muted">{{ tarea.titulo }}</h6>
-                  <div class="d-flex align-items-center justify-content-between">
-                    <span class="badge opacity-50" [ngClass]="{
-                      'bg-danger-git': tarea.prioridad === 'ALTA',
-                      'bg-warning-git': tarea.prioridad === 'MEDIA',
-                      'bg-success-git': tarea.prioridad === 'BAJA'
-                    }">{{ tarea.prioridad }}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
-    </div>
 
+      <!-- Columna En Progreso -->
+      <div class="kanban-col">
+        <div class="kanban-col-header">
+          <div class="kanban-col-title">
+            <span class="col-dot dot-info"></span>
+            En progreso
+          </div>
+          <span class="col-count">{{ tareasEnProgreso.length || 0 }}</span>
+        </div>
+        <div class="kanban-cards">
+          <div class="kanban-card" *ngFor="let tarea of tareasEnProgreso">
+            <p class="card-title">{{ tarea.titulo }}</p>
+            <span class="priority-badge"
+              [ngClass]="{
+                'badge-alta':  tarea.prioridad === 'ALTA',
+                'badge-media': tarea.prioridad === 'MEDIA',
+                'badge-baja':  tarea.prioridad === 'BAJA'
+              }">{{ tarea.prioridad }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna Completado -->
+      <div class="kanban-col">
+        <div class="kanban-col-header">
+          <div class="kanban-col-title">
+            <span class="col-dot dot-success"></span>
+            Completado
+          </div>
+          <span class="col-count">{{ tareasCompletadas.length || 0 }}</span>
+        </div>
+        <div class="kanban-cards">
+          <div class="kanban-card kanban-card-done" *ngFor="let tarea of tareasCompletadas">
+            <p class="card-title card-title-done">{{ tarea.titulo }}</p>
+            <span class="priority-badge"
+              [ngClass]="{
+                'badge-alta':  tarea.prioridad === 'ALTA',
+                'badge-media': tarea.prioridad === 'MEDIA',
+                'badge-baja':  tarea.prioridad === 'BAJA'
+              }">{{ tarea.prioridad }}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>

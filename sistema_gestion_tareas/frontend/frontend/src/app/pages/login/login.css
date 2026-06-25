@@ -1,73 +1,118 @@
-/* Asegura que el contenedor ocupe todo el alto de la pantalla */
 .login-wrapper {
   min-height: 100vh;
-  background-color: #0d1117; /* Fondo oscuro estilo GitHub */
-  background-image: radial-gradient(circle at top right, rgba(31, 111, 235, 0.1), transparent 40%);
+  background-color: #0d1117;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
 }
 
-/* Tarjeta de login */
 .login-card {
-  background-color: #161b22 !important; /* Gris intermedio */
-  border: 1px solid #30363d !important; /* Borde sutil de GitHub */
+  background-color: #161b22;
+  border: 1px solid #30363d;
   border-radius: 12px;
+  padding: 36px 32px;
+  width: 100%;
+  max-width: 340px;
 }
 
-/* Título e ícono */
+/* Encabezado de marca */
+.login-brand {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.login-icon {
+  width: 48px;
+  height: 48px;
+  background-color: #21262d;
+  border: 1px solid #30363d;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c9d1d9;
+  margin: 0 auto 14px;
+}
+
 .login-title {
   color: #f0f6fc;
-  font-size: 1.5rem;
-  letter-spacing: -0.5px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 4px;
+  letter-spacing: -0.3px;
 }
 
-.brand-icon {
-  width: 56px;
-  height: 56px;
-  background-color: #21262d;
-  color: #c9d1d9;
-  border-radius: 50%;
+.login-subtitle {
+  color: #8b949e;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+/* Campos */
+.field-group {
+  margin-bottom: 14px;
+}
+
+.field-label {
+  display: block;
+  color: #8b949e;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.field-input {
+  width: 100%;
+  background-color: #0d1117;
   border: 1px solid #30363d;
-}
-
-/* Etiquetas y Campos de texto */
-.custom-label {
-  color: #c9d1d9;
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
-.custom-input {
-  background-color: #0d1117 !important;
-  border: 1px solid #30363d !important;
-  color: #f0f6fc !important;
-  padding: 0.6rem 0.75rem;
   border-radius: 6px;
-  transition: all 0.2s ease-in-out;
+  color: #f0f6fc;
+  font-size: 0.875rem;
+  padding: 8px 10px;
+  transition: border-color 0.15s ease;
+  box-sizing: border-box;
 }
 
-.custom-input:focus {
-  border-color: #58a6ff !important; /* Azul GitHub */
-  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.15) !important;
+.field-input:focus {
   outline: none;
+  border-color: #388bfd;
+  box-shadow: 0 0 0 3px rgba(56, 139, 253, 0.12);
 }
 
-.custom-input::placeholder {
+.field-input::placeholder {
   color: #484f58;
 }
 
-/* Botón Estilo GitHub Primario */
-.btn-git-primary {
-  background-color: #238636; /* Verde de GitHub */
-  border: 1px solid rgba(240, 246, 252, 0.1);
-  color: #ffffff;
+/* Botón */
+.btn-submit {
+  width: 100%;
+  background-color: #238636;
+  border: 1px solid #2ea043;
   border-radius: 6px;
-  transition: background-color 0.2s ease;
-}
-
-.btn-git-primary:hover {
-  background-color: #2ea043;
   color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 9px;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: background-color 0.15s ease;
 }
 
-.btn-git-primary:active {
-  background-color: #24883a;
+.btn-submit:hover {
+  background-color: #2ea043;
+}
+
+.btn-submit:active {
+  background-color: #236e2b;
+}
+
+/* Pie de página */
+.login-footer {
+  color: #484f58;
+  font-size: 0.72rem;
+  text-align: center;
+  margin: 20px 0 0;
 }

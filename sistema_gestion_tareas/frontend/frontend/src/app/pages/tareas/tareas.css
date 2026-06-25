@@ -1,201 +1,236 @@
 .tasks-wrapper {
-  background-color: #0d1117;
   min-height: 100vh;
+  background-color: #0d1117;
   color: #c9d1d9;
+}
+
+/* ── Navbar ── */
+.tasks-nav {
+  background-color: #161b22;
+  border-bottom: 1px solid #21262d;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #f0f6fc;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.nav-actions { display: flex; gap: 8px; }
+
+/* ── Botones base ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.btn-primary {
+  background-color: #238636;
+  border-color: #2ea043;
+  color: #fff;
+}
+.btn-primary:hover { background-color: #2ea043; }
+
+.btn-secondary {
+  background-color: #21262d;
+  border-color: #30363d;
+  color: #c9d1d9;
+}
+.btn-secondary:hover { background-color: #30363d; color: #f0f6fc; }
+
+/* ── Contenido ── */
+.tasks-content { padding: 20px; }
+
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
 }
 
 .page-title {
-  letter-spacing: -0.5px;
   color: #f0f6fc;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 3px;
+  letter-spacing: -0.3px;
 }
 
-/* Contenedor principal */
+.page-subtitle {
+  color: #8b949e;
+  font-size: 0.78rem;
+  margin: 0;
+}
+
+/* ── Tabla ── */
 .table-card {
   background-color: #161b22;
-  border: 1px solid #30363d !important;
-  border-radius: 12px;
+  border: 1px solid #30363d;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
-/* Tabla */
-.custom-git-table {
-  background-color: #161b22;
-  margin-bottom: 0;
+.table-responsive { overflow-x: auto; }
+
+.tasks-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
 }
 
-.custom-git-table thead th {
+.tasks-table thead th {
   background-color: #0d1117;
-  color: #8b949e !important;
-  border-bottom: 1px solid #30363d;
-  padding: 14px 16px;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-/* Filas */
-.custom-git-table tbody tr {
-  background-color: #161b22;
-  border-bottom: 1px solid #21262d;
-  transition: all 0.2s ease;
-}
-
-.custom-git-table tbody tr:hover {
-  background-color: #1c2128;
-}
-
-.custom-git-table tbody td {
-  background-color: #161b22;
-  color: #c9d1d9;
-  padding: 16px;
-  vertical-align: middle;
-}
-
-/* Título tarea */
-.task-table-title {
-  color: #58a6ff;
+  color: #8b949e;
+  font-size: 0.68rem;
   font-weight: 600;
-  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 10px 14px;
+  border-bottom: 1px solid #21262d;
+  white-space: nowrap;
 }
 
-.task-table-title:hover {
-  color: #79c0ff;
+.tasks-table tbody tr {
+  border-bottom: 1px solid #21262d;
+  transition: background-color 0.1s ease;
 }
 
-/* Avatar */
-.user-avatar-placeholder {
-  width: 30px;
-  height: 30px;
-  background: linear-gradient(135deg, #238636, #58a6ff);
-  color: white;
+.tasks-table tbody tr:last-child { border-bottom: none; }
+
+.tasks-table tbody tr:hover td { background-color: #1c2128; }
+
+.tasks-table tbody td {
+  padding: 12px 14px;
+  color: #c9d1d9;
+  vertical-align: middle;
+  background-color: #161b22;
+}
+
+/* ── Celdas especiales ── */
+.cell-id {
+  font-family: monospace;
+  color: #8b949e;
+  font-size: 0.8rem;
+}
+
+.task-title {
+  color: #58a6ff;
+  font-weight: 500;
+}
+
+/* ── Badges ── */
+.status-badge,
+.priority-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+/* Estado */
+.status-open     { background-color: rgba(35,134,54,.13);  color: #56d364; border: 1px solid rgba(35,134,54,.3); }
+.status-progress { background-color: rgba(56,139,253,.13); color: #79c0ff; border: 1px solid rgba(56,139,253,.3); }
+.status-done     { background-color: rgba(137,87,229,.13); color: #a371f7; border: 1px solid rgba(137,87,229,.3); }
+
+/* Prioridad */
+.badge-alta  { background-color: rgba(248,81,73,.12);  color: #ffa197; border: 1px solid rgba(248,81,73,.3); }
+.badge-media { background-color: rgba(210,153,34,.12); color: #ffdd67; border: 1px solid rgba(210,153,34,.3); }
+.badge-baja  { background-color: rgba(56,139,253,.12); color: #79c0ff; border: 1px solid rgba(56,139,253,.3); }
+
+/* ── Usuario ── */
+.user-cell {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.user-avatar {
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
+  background: linear-gradient(135deg, #238636, #388bfd);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8rem;
-  font-weight: 700;
+  flex-shrink: 0;
 }
 
-/* Badges */
-.badge {
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-/* Estados */
-.status-open {
-  background-color: rgba(35, 134, 54, 0.15);
-  color: #56d364;
-  border: 1px solid rgba(35, 134, 54, 0.4);
-}
-
-.status-progress {
-  background-color: rgba(56, 139, 253, 0.15);
-  color: #79c0ff;
-  border: 1px solid rgba(56, 139, 253, 0.4);
-}
-
-.status-closed {
-  background-color: rgba(137, 87, 229, 0.15);
-  color: #a371f7;
-  border: 1px solid rgba(137, 87, 229, 0.4);
-}
-
-/* Prioridades */
-.bg-danger-git {
-  background-color: rgba(248, 81, 73, 0.15);
-  color: #ff7b72;
-  border: 1px solid rgba(248, 81, 73, 0.4);
-}
-
-.bg-warning-git {
-  background-color: rgba(210, 153, 34, 0.15);
-  color: #e3b341;
-  border: 1px solid rgba(210, 153, 34, 0.4);
-}
-
-.bg-success-git {
-  background-color: rgba(35, 134, 54, 0.15);
-  color: #56d364;
-  border: 1px solid rgba(35, 134, 54, 0.4);
-}
-
-/* Botón editar */
-.btn-action-edit {
-  background-color: #21262d;
-  border: 1px solid #30363d;
+.user-name {
   color: #c9d1d9;
+  font-size: 0.82rem;
+}
+
+/* ── Sprint ── */
+.sprint-badge {
+  color: #79c0ff;
+  font-size: 0.78rem;
+}
+
+/* ── Acciones de fila ── */
+.row-actions {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 6px;
-  transition: all 0.2s ease;
 }
 
-.btn-action-edit:hover {
-  background-color: #30363d;
-  color: #58a6ff;
-  border-color: #58a6ff;
-}
-
-/* Botón eliminar */
-.btn-action-delete {
-  background-color: transparent;
-  border: 1px solid transparent;
-  color: #8b949e;
-  transition: all 0.2s ease;
-}
-
-.btn-action-delete:hover {
-  background-color: rgba(248, 81, 73, 0.15);
-  color: #f85149;
-}
-
-/* Botón dashboard */
-.btn-git-secondary {
-  background-color: #21262d;
-  border: 1px solid #30363d;
-  color: #c9d1d9;
-  transition: all 0.2s ease;
-}
-
-.btn-git-secondary:hover {
-  background-color: #30363d;
-  border-color: #58a6ff;
-  color: #58a6ff;
-}
-
-/* Scroll bonito */
-.table-responsive::-webkit-scrollbar {
-  height: 8px;
-}
-
-.table-responsive::-webkit-scrollbar-track {
-  background: #0d1117;
-}
-
-.table-responsive::-webkit-scrollbar-thumb {
-  background: #30363d;
-  border-radius: 4px;
-}
-
-.table-responsive::-webkit-scrollbar-thumb:hover {
-  background: #484f58;
-}
-.font-monospace {
-  color: #8b949e;
-}
-.sprint-badge {
+.btn-edit {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(88, 166, 255, 0.12);
-  border: 1px solid rgba(88, 166, 255, 0.25);
-  color: #79c0ff;
-  font-size: 0.85rem;
-  font-weight: 500;
+  gap: 4px;
+  background-color: #21262d;
+  border: 1px solid #30363d;
+  border-radius: 5px;
+  color: #c9d1d9;
+  font-size: 0.75rem;
+  padding: 4px 9px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
 }
+.btn-edit:hover { border-color: #58a6ff; color: #58a6ff; }
+
+.btn-delete {
+  display: inline-flex;
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  color: #8b949e;
+  padding: 4px 6px;
+  cursor: pointer;
+  transition: color 0.15s, background-color 0.15s;
+}
+.btn-delete:hover { color: #f85149; background-color: rgba(248,81,73,0.1); }
+
+/* ── Fila vacía ── */
+.empty-row {
+  text-align: center;
+  color: #8b949e;
+  padding: 40px 0 !important;
+  font-size: 0.85rem;
+}
+
+/* ── Scrollbar ── */
+.table-responsive::-webkit-scrollbar { height: 6px; }
+.table-responsive::-webkit-scrollbar-track { background: #0d1117; }
+.table-responsive::-webkit-scrollbar-thumb { background: #30363d; border-radius: 3px; }
+.table-responsive::-webkit-scrollbar-thumb:hover { background: #484f58; }

@@ -1,114 +1,58 @@
-<div class="edit-wrapper min-vh-100 py-5">
+<div class="form-wrapper">
   <div class="container">
+    <div class="form-card">
 
-    <div class="edit-card">
-
-      <div class="d-flex justify-content-between align-items-center mb-4">
+      <div class="form-header">
         <div>
-          <h2 class="edit-title mb-1">Editar Tarea</h2>
-          <p class="text-muted mb-0">
-            Modifica la información de la tarea seleccionada
-          </p>
+          <h2 class="form-title">Editar tarea</h2>
+          <p class="form-subtitle">Modifica la información de la tarea seleccionada</p>
         </div>
-
-        <button
-          class="btn btn-git-secondary"
-          routerLink="/tareas">
-
-          ← Volver
-
-        </button>
+        <button class="btn btn-secondary" routerLink="/tareas">← Volver</button>
       </div>
 
-      <hr class="custom-divider">
+      <hr class="form-divider">
 
-      <div class="mb-4">
-
-        <label class="form-label custom-label">
-          Título
-        </label>
-
+      <div class="field-group">
+        <label class="field-label">Título</label>
         <input
           type="text"
-          class="form-control custom-input"
+          class="field-input"
           [(ngModel)]="titulo">
-
       </div>
 
-      <div class="mb-4">
-
-        <label class="form-label custom-label">
-          Descripción
-        </label>
-
+      <div class="field-group">
+        <label class="field-label">Descripción</label>
         <textarea
+          class="field-textarea"
           rows="5"
-          class="form-control custom-input"
           [(ngModel)]="descripcion">
         </textarea>
-
       </div>
 
-      <div class="row">
-
-        <div class="col-md-6 mb-4">
-
-          <label class="form-label custom-label">
-            Estado
-          </label>
-
-          <select
-            class="form-select custom-input"
-            [(ngModel)]="estado">
-
-            <option value="PENDIENTE">PENDIENTE</option>
-            <option value="EN_PROGRESO">EN PROGRESO</option>
-            <option value="COMPLETADO">COMPLETADO</option>
-
+      <div class="field-row">
+        <div class="field-group">
+          <label class="field-label">Estado</label>
+          <select class="field-select" [(ngModel)]="estado">
+            <option value="PENDIENTE">Pendiente</option>
+            <option value="EN_PROGRESO">En progreso</option>
+            <option value="COMPLETADO">Completado</option>
           </select>
-
         </div>
-
-        <div class="col-md-6 mb-4">
-
-          <label class="form-label custom-label">
-            Prioridad
-          </label>
-
-          <select
-            class="form-select custom-input"
-            [(ngModel)]="prioridad">
-
-            <option value="BAJA">BAJA</option>
-            <option value="MEDIA">MEDIA</option>
-            <option value="ALTA">ALTA</option>
-
+        <div class="field-group">
+          <label class="field-label">Prioridad</label>
+          <select class="field-select" [(ngModel)]="prioridad">
+            <option value="BAJA">Baja</option>
+            <option value="MEDIA">Media</option>
+            <option value="ALTA">Alta</option>
           </select>
-
         </div>
-
       </div>
 
-      <div class="d-flex justify-content-end gap-2">
-
-        <button
-          class="btn btn-git-secondary">
-
-          Cancelar
-
-        </button>
-
-        <button
-          class="btn btn-save"
-          (click)="guardar()">
-
-          💾 Actualizar Tarea
-
-        </button>
-
+      <div class="form-actions">
+        <button class="btn btn-secondary" routerLink="/tareas">Cancelar</button>
+        <button class="btn btn-primary" (click)="guardar()">Guardar cambios</button>
       </div>
 
     </div>
-
   </div>
 </div>

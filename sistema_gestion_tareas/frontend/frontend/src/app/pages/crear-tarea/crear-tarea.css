@@ -1,75 +1,147 @@
-.create-wrapper {
+/* ── Wrapper compartido con editar-tarea ── */
+.form-wrapper {
+  min-height: 100vh;
   background-color: #0d1117;
+  padding: 40px 16px;
 }
 
-.create-card {
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ── Card del formulario ── */
+.form-card {
   background-color: #161b22;
   border: 1px solid #30363d;
   border-radius: 12px;
-  padding: 32px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  padding: 28px 32px;
 }
 
-.create-title {
+/* ── Encabezado ── */
+.form-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.form-title {
   color: #f0f6fc;
-  font-weight: 700;
-}
-
-.custom-divider {
-  border-color: #30363d;
-}
-
-.custom-label {
-  color: #c9d1d9;
+  font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 8px;
+  margin: 0 0 3px;
+  letter-spacing: -0.3px;
 }
 
-.custom-input {
+.form-subtitle {
+  color: #8b949e;
+  font-size: 0.78rem;
+  margin: 0;
+}
+
+.form-divider {
+  border: none;
+  border-top: 1px solid #21262d;
+  margin-bottom: 20px;
+}
+
+/* ── Campos ── */
+.field-group {
+  margin-bottom: 16px;
+}
+
+.field-label {
+  display: block;
+  color: #8b949e;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.field-input,
+.field-textarea,
+.field-select {
+  width: 100%;
   background-color: #0d1117;
   border: 1px solid #30363d;
+  border-radius: 6px;
   color: #f0f6fc;
+  font-size: 0.875rem;
+  padding: 8px 10px;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease;
+  font-family: inherit;
 }
 
-.custom-input:focus {
-  background-color: #0d1117;
-  color: #f0f6fc;
-  border-color: #58a6ff;
-  box-shadow: 0 0 0 0.2rem rgba(88, 166, 255, 0.15);
+.field-input:focus,
+.field-textarea:focus,
+.field-select:focus {
+  outline: none;
+  border-color: #388bfd;
+  box-shadow: 0 0 0 3px rgba(56,139,253,0.12);
 }
 
-.custom-input::placeholder {
-  color: #8b949e;
+.field-input::placeholder,
+.field-textarea::placeholder {
+  color: #484f58;
 }
 
-.form-select option {
+.field-textarea { resize: vertical; }
+
+.field-select option {
   background-color: #161b22;
   color: #f0f6fc;
 }
 
-.btn-create {
+/* ── Fila de dos columnas ── */
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* ── Acciones ── */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* ── Botones ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 14px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color 0.15s, color 0.15s;
+  font-family: inherit;
+}
+
+.btn-primary {
   background-color: #238636;
-  border: 1px solid #2ea043;
-  color: white;
-  font-weight: 600;
-  padding: 10px 18px;
+  border-color: #2ea043;
+  color: #fff;
 }
+.btn-primary:hover { background-color: #2ea043; }
 
-.btn-create:hover {
-  background-color: #2ea043;
-}
-
-.btn-git-secondary {
+.btn-secondary {
   background-color: #21262d;
-  border: 1px solid #30363d;
+  border-color: #30363d;
   color: #c9d1d9;
 }
+.btn-secondary:hover { background-color: #30363d; color: #f0f6fc; }
 
-.btn-git-secondary:hover {
-  background-color: #30363d;
-  color: #58a6ff;
-}
-
-.text-muted {
-  color: #8b949e !important;
+/* ── Responsive ── */
+@media (max-width: 560px) {
+  .field-row { grid-template-columns: 1fr; }
+  .form-card { padding: 20px 16px; }
 }
