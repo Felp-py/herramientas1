@@ -90,4 +90,9 @@ export class Tareas implements OnInit {
 irAlDashboard(): void {
   this.router.navigate(['/dashboard']);
 }
+
+irACrearTarea(): void {
+    this.router.navigate(['/crear-tarea']);
+  }
+
 }

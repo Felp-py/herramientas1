@@ -1,5 +1,6 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { authInterceptor } from './interceptors/auth.interceptor';
 
 import {
   provideHttpClient,
@@ -18,6 +19,7 @@ export const appConfig: ApplicationConfig = {
       withInterceptors([
         jwtInterceptor
       ])
-    )
+    ),
+    provideHttpClient(withInterceptors([authInterceptor]))
   ]
 };
