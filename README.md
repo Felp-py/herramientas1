@@ -16,7 +16,7 @@ GitHub (Issues, commits y Pull Requests).
 | Jhanayra Jariv Gomero Donayre | QA y Testing | [@jhany06](https://github.com/jhany06) |
 | Ana Paula Guzmán Mendieta | Análisis y Documentación | [@AnPauMen](https://github.com/AnPauMen) |
 
-## Tecnologías
+## Tecnologías:
 
 - **Frontend:** Angular 21 (standalone components), Bootstrap 5.
 - **Backend:** Spring Boot 3.5.15, Java 21, Spring Security + JWT
