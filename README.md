@@ -18,7 +18,7 @@ GitHub (Issues, commits y Pull Requests).
 
 ## Tecnologías
 
-- **Frontend:** Angular 21 (standalone components), Bootstrap 5
+- **Frontend:** Angular 21 (standalone components), Bootstrap 5.
 - **Backend:** Spring Boot 3.5.15, Java 21, Spring Security + JWT
 - **Base de datos:** MySQL
 - **Metodología:** Scrum (4 sprints de 3 semanas)
