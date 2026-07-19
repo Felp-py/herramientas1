@@ -1,0 +1,35 @@
+name: CD - Deploy Frontend
+
+on:
+  workflow_run:
+    workflows: [ "CI - Build Backend & Frontend" ]
+    branches: [ main ]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar dependencias
+        working-directory: ./sistema_gestion_tareas/frontend/frontend
+        run: npm install
+
+      - name: Generar build de producción
+        working-directory: ./sistema_gestion_tareas/frontend/frontend
+        run: npm run build -- --output-path=dist --base-href=/herramientas1/
+
+      - name: Desplegar en GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./sistema_gestion_tareas/frontend/frontend/dist
