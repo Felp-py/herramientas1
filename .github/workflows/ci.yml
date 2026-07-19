@@ -19,6 +19,10 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Dar permisos de ejecución a mvnw
+        working-directory: ./sistema_gestion_tareas/backend
+        run: chmod +x ./mvnw
+
       - name: Compilar backend con Maven
         working-directory: ./sistema_gestion_tareas/backend
         run: ./mvnw clean install -DskipTests
