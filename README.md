@@ -24,7 +24,7 @@ GitHub (Issues, commits y Pull Requests).
 - **Metodología:** Scrum (4 sprints de 3 semanas)
 - **CI/CD:** GitHub Actions (`.github/workflows/ci.yml` y `deploy.yml`)
 
-## Estructura del repositorio
+## Estructura del repositorio:
 
 ```
 herramientas1/
