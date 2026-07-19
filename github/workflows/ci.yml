@@ -1,0 +1,43 @@
+name: CI - Build Backend & Frontend
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Compilar backend con Maven
+        working-directory: ./sistema_gestion_tareas/backend
+        run: ./mvnw clean install -DskipTests
+
+  build-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar dependencias
+        working-directory: ./sistema_gestion_tareas/frontend/frontend
+        run: npm install
+
+      - name: Compilar proyecto Angular
+        working-directory: ./sistema_gestion_tareas/frontend/frontend
+        run: npm run build
