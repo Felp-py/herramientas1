@@ -94,3 +94,4 @@ El frontend corre por defecto en `http://localhost:4200`.
 - **CI** (`ci.yml`): compila el frontend en cada push/PR a `main` o `develop`.
 - **CD** (`deploy.yml`): al integrar cambios en `main`, compila el frontend y
   lo publica automáticamente en GitHub Pages.
+
